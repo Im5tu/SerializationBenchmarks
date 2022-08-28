@@ -1,0 +1,32 @@
+﻿//bebopc --cs Bebop.cs --namespace SerializationBenchmarks.Models.Bebop --files Models.bop --no-warn 200
+enum Gender {
+    Male = 0;
+    Female = 1;
+}
+
+message Order {
+    1 -> int32 OrderId;
+    2 -> string Item;
+    3 -> int32 Quantity;
+    4 -> int32 LotNumber;
+}
+
+message User {
+    1 -> int32 Id;
+    2 -> string FirstName;
+    3 -> string LastName;
+    4 -> string FullName;
+    5 -> string UserName;
+    6 -> string Email;
+    7 -> string SomethingUnique;
+    8 -> guid SomeGuid;
+    9 -> string Avatar;
+    10 -> guid CartId;
+    11 -> string SSN;
+    12 -> Gender Gender;
+    13 -> Order[] Orders;
+}
+
+message UserWrapper {
+    1 -> User[] Users;
+}

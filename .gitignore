@@ -9,7 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-
+.idea/
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -53,9 +53,6 @@ nunit-*.xml
 [Rr]eleasePS/
 dlldata.c
 
-# Benchmark Results
-BenchmarkDotNet.Artifacts/
-
 # .NET Core
 project.lock.json
 project.fragment.lock.json
@@ -85,7 +82,6 @@ StyleCopReport.xml
 *.tmp
 *.tmp_proj
 *_wpftmp.csproj
-*.log
 *.vspscc
 *.vssscc
 .builds
