@@ -2,6 +2,25 @@
 
 As part of a [recent YouTube video](), I went through a bunch of serializers to see their current levels of performance. I'm happy for this repository to be improved in terms of fixing any minor issues, adding new scenarios or adding serialization frameworks.
 
+## Serializers
+
+### JSON
+- Jil: https://www.nuget.org/packages/Jil/
+- Newtonsoft.Json: https://www.nuget.org/packages/Newtonsoft.Json/
+- ServiceStack.Text: https://www.nuget.org/packages/ServiceStack.Text/
+- SpanJson: https://www.nuget.org/packages/SpanJson
+- UTF8Json: https://www.nuget.org/packages/Utf8Json
+
+### Binary
+- AvroConvert: https://www.nuget.org/packages/AvroConvert/
+- Bebop: https://www.nuget.org/packages/bebop
+- BSON: https://www.nuget.org/packages/MongoDB.Bson
+- GroBuf: https://www.nuget.org/packages/GroBuf
+- Hyperion: https://www.nuget.org/packages/Hyperion
+- MessagePack: https://www.nuget.org/packages/MessagePack
+- MsgPack: https://www.nuget.org/packages/MsgPack
+- protobuf-net: https://www.nuget.org/packages/protobuf-net
+
 ## Current JSON Serializer Results (2022-08-28)
 
 ```
