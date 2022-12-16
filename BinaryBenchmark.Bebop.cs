@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Buffers;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using BenchmarkDotNet.Attributes;
 using SerializationBenchmarks.Models.Bebop;
@@ -7,7 +8,7 @@ using Wrapper = SerializationBenchmarks.Models.Bebop.UserWrapper;
 public partial class BinaryBenchmark
 {
     [Benchmark, BenchmarkCategory("Serialization", "Binary"), ArgumentsSource(nameof(GenerateBebopDataSets))]
-    public byte[] Bebop_Serialize(BebopDataSet data)
+    public ReadOnlyMemory<byte> Bebop_Serialize(BebopDataSet data)
     {
         return DataConvert_Bebop(data.Payload);
     }
@@ -18,9 +19,20 @@ public partial class BinaryBenchmark
         return Wrapper.Decode(data.Data).Users;
     }
     
-    private byte[] DataConvert_Bebop(User[] users)
+    private ReadOnlyMemory<byte> DataConvert_Bebop(User[] users)
     {
-        return Wrapper.Encode(new Wrapper { Users = users });
+        var wrapper = new Wrapper { Users = users };
+        var size = wrapper.MaxByteCount;
+        var encodeBuffer = ArrayPool<byte>.Shared.Rent(size);
+        try
+        {
+            var written = wrapper.EncodeIntoBuffer(encodeBuffer);
+            return new ReadOnlyMemory<byte>(encodeBuffer, 0, written);
+        } finally
+        {
+            ArrayPool<byte>.Shared.Return(encodeBuffer);
+        }
+
     }
     
     public IEnumerable<BebopDataSet> GenerateBebopDataSets()
@@ -57,7 +69,7 @@ public partial class BinaryBenchmark
     {
         public string Name { get; set; }
         public User[] Payload { get; set; }
-        public byte[] Data { get; set; }
+        public ReadOnlyMemory<byte> Data { get; set; }
         public override string ToString() => Name;
     }
 }

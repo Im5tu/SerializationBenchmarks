@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>BinaryBenchmark-20221216-083649</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.2, OS=macOS 13.1 (22C65) [Darwin 22.2.0]
+Apple M1 Max, 1 CPU, 10 logical and 10 physical cores
+.NET SDK=7.0.100
+  [Host]     : .NET 7.0.0 (7.0.22.51805), Arm64 RyuJIT AdvSIMD
+  DefaultJob : .NET 7.0.0 (7.0.22.51805), Arm64 RyuJIT AdvSIMD
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>           Method</th><th>data</th><th>   Mean</th><th>Error</th><th>StdDev</th><th>    Min</th><th>    Max</th><th>Gen0</th><th>Gen1</th><th>Gen2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>Bebop_Deserialize</td><td>Small</td><td>106.36 &mu;s</td><td>0.063 &mu;s</td><td>0.056 &mu;s</td><td>106.23 &mu;s</td><td>106.45 &mu;s</td><td>43.3350</td><td>20.3857</td><td>-</td><td>272000 B</td>
+</tr><tr><td>GroBuf_Deserialize</td><td>Small</td><td>110.83 &mu;s</td><td>0.146 &mu;s</td><td>0.136 &mu;s</td><td>110.64 &mu;s</td><td>111.05 &mu;s</td><td>41.9922</td><td>20.9961</td><td>-</td><td>263784 B</td>
+</tr><tr><td>MessagePack_Deserialize</td><td>Small</td><td>231.11 &mu;s</td><td>0.273 &mu;s</td><td>0.213 &mu;s</td><td>230.80 &mu;s</td><td>231.43 &mu;s</td><td>41.9922</td><td>20.9961</td><td>-</td><td>263712 B</td>
+</tr><tr><td>ProtoBufNet_Deserialize</td><td>Small</td><td>249.88 &mu;s</td><td>0.272 &mu;s</td><td>0.242 &mu;s</td><td>249.49 &mu;s</td><td>250.27 &mu;s</td><td>42.9688</td><td>15.6250</td><td>-</td><td>270233 B</td>
+</tr><tr><td>Hyperion_Deserialize</td><td>Small</td><td>281.61 &mu;s</td><td>0.148 &mu;s</td><td>0.139 &mu;s</td><td>281.35 &mu;s</td><td>281.75 &mu;s</td><td>49.8047</td><td>24.9023</td><td>-</td><td>315424 B</td>
+</tr><tr><td>MsgPack_Deserialize</td><td>Small</td><td>345.32 &mu;s</td><td>0.649 &mu;s</td><td>0.607 &mu;s</td><td>344.50 &mu;s</td><td>346.49 &mu;s</td><td>51.2695</td><td>23.9258</td><td>-</td><td>322224 B</td>
+</tr><tr><td>AvroConvert_Deserialize</td><td>Small</td><td>1,065.17 &mu;s</td><td>2.358 &mu;s</td><td>2.206 &mu;s</td><td>1,062.38 &mu;s</td><td>1,069.69 &mu;s</td><td>195.3125</td><td>82.0313</td><td>-</td><td>1225548 B</td>
+</tr><tr><td>BSON_Deserialize</td><td>Small</td><td>1,421.65 &mu;s</td><td>1.487 &mu;s</td><td>1.161 &mu;s</td><td>1,420.02 &mu;s</td><td>1,424.01 &mu;s</td><td>111.3281</td><td>54.6875</td><td>-</td><td>701892 B</td>
+</tr><tr><td>GroBuf_Deserialize</td><td>Medium</td><td>7,008.92 &mu;s</td><td>84.377 &mu;s</td><td>78.926 &mu;s</td><td>6,878.29 &mu;s</td><td>7,156.69 &mu;s</td><td>1210.9375</td><td>515.6250</td><td>171.8750</td><td>6533222 B</td>
+</tr><tr><td>Bebop_Deserialize</td><td>Medium</td><td>7,226.75 &mu;s</td><td>8.158 &mu;s</td><td>7.232 &mu;s</td><td>7,217.44 &mu;s</td><td>7,242.97 &mu;s</td><td>1250.0000</td><td>539.0625</td><td>179.6875</td><td>6732583 B</td>
+</tr><tr><td>MessagePack_Deserialize</td><td>Medium</td><td>9,648.85 &mu;s</td><td>11.270 &mu;s</td><td>9.990 &mu;s</td><td>9,634.35 &mu;s</td><td>9,662.78 &mu;s</td><td>1187.5000</td><td>500.0000</td><td>156.2500</td><td>6533142 B</td>
+</tr><tr><td>ProtoBufNet_Deserialize</td><td>Medium</td><td>10,406.65 &mu;s</td><td>53.215 &mu;s</td><td>49.778 &mu;s</td><td>10,271.46 &mu;s</td><td>10,457.28 &mu;s</td><td>1218.7500</td><td>515.6250</td><td>156.2500</td><td>6693373 B</td>
+</tr><tr><td>Hyperion_Deserialize</td><td>Medium</td><td>13,777.34 &mu;s</td><td>115.171 &mu;s</td><td>96.173 &mu;s</td><td>13,654.41 &mu;s</td><td>13,974.35 &mu;s</td><td>1421.8750</td><td>609.3750</td><td>187.5000</td><td>7789699 B</td>
+</tr><tr><td>MsgPack_Deserialize</td><td>Medium</td><td>13,812.40 &mu;s</td><td>152.149 &mu;s</td><td>142.320 &mu;s</td><td>13,559.49 &mu;s</td><td>13,981.24 &mu;s</td><td>1421.8750</td><td>609.3750</td><td>187.5000</td><td>7993148 B</td>
+</tr><tr><td>AvroConvert_Deserialize</td><td>Medium</td><td>32,204.29 &mu;s</td><td>108.126 &mu;s</td><td>101.142 &mu;s</td><td>32,094.36 &mu;s</td><td>32,427.29 &mu;s</td><td>3937.5000</td><td>1062.5000</td><td>312.5000</td><td>26403270 B</td>
+</tr><tr><td>GroBuf_Deserialize</td><td>Large</td><td>35,696.67 &mu;s</td><td>379.411 &mu;s</td><td>354.902 &mu;s</td><td>35,027.66 &mu;s</td><td>36,219.99 &mu;s</td><td>4600.0000</td><td>1866.6667</td><td>466.6667</td><td>26179113 B</td>
+</tr><tr><td>Bebop_Deserialize</td><td>Large</td><td>38,257.50 &mu;s</td><td>340.619 &mu;s</td><td>265.933 &mu;s</td><td>37,557.27 &mu;s</td><td>38,612.50 &mu;s</td><td>4812.5000</td><td>2000.0000</td><td>562.5000</td><td>26980798 B</td>
+</tr><tr><td>BSON_Deserialize</td><td>Medium</td><td>43,621.27 &mu;s</td><td>242.052 &mu;s</td><td>188.979 &mu;s</td><td>43,303.80 &mu;s</td><td>43,901.16 &mu;s</td><td>3000.0000</td><td>916.6667</td><td>250.0000</td><td>17299087 B</td>
+</tr><tr><td>MessagePack_Deserialize</td><td>Large</td><td>46,444.78 &mu;s</td><td>151.608 &mu;s</td><td>141.814 &mu;s</td><td>46,188.23 &mu;s</td><td>46,675.79 &mu;s</td><td>4545.4545</td><td>1818.1818</td><td>454.5455</td><td>26179144 B</td>
+</tr><tr><td>ProtoBufNet_Deserialize</td><td>Large</td><td>50,713.72 &mu;s</td><td>142.730 &mu;s</td><td>133.510 &mu;s</td><td>50,347.42 &mu;s</td><td>50,856.76 &mu;s</td><td>4800.0000</td><td>2000.0000</td><td>600.0000</td><td>26819769 B</td>
+</tr><tr><td>Hyperion_Deserialize</td><td>Large</td><td>61,367.55 &mu;s</td><td>411.792 &mu;s</td><td>365.043 &mu;s</td><td>60,758.03 &mu;s</td><td>62,022.32 &mu;s</td><td>5500.0000</td><td>2375.0000</td><td>625.0000</td><td>31180252 B</td>
+</tr><tr><td>MsgPack_Deserialize</td><td>Large</td><td>61,954.40 &mu;s</td><td>186.470 &mu;s</td><td>165.301 &mu;s</td><td>61,730.87 &mu;s</td><td>62,253.26 &mu;s</td><td>5500.0000</td><td>2125.0000</td><td>500.0000</td><td>32018834 B</td>
+</tr><tr><td>AvroConvert_Deserialize</td><td>Large</td><td>129,342.32 &mu;s</td><td>379.061 &mu;s</td><td>316.533 &mu;s</td><td>128,598.59 &mu;s</td><td>129,686.82 &mu;s</td><td>15000.0000</td><td>4250.0000</td><td>500.0000</td><td>105397354 B</td>
+</tr><tr><td>BSON_Deserialize</td><td>Large</td><td>214,723.66 &mu;s</td><td>674.765 &mu;s</td><td>631.176 &mu;s</td><td>213,350.26 &mu;s</td><td>215,583.51 &mu;s</td><td>11000.0000</td><td>3333.3333</td><td>333.3333</td><td>69301888 B</td>
+</tr><tr><td>GroBuf_Serialize</td><td>Small</td><td>73.33 &mu;s</td><td>0.210 &mu;s</td><td>0.196 &mu;s</td><td>73.00 &mu;s</td><td>73.73 &mu;s</td><td>26.8555</td><td>26.8555</td><td>26.8555</td><td>189573 B</td>
+</tr><tr><td>Bebop_Serialize</td><td>Small</td><td>81.51 &mu;s</td><td>0.216 &mu;s</td><td>0.169 &mu;s</td><td>81.09 &mu;s</td><td>81.70 &mu;s</td><td>-</td><td>-</td><td>-</td><td>24 B</td>
+</tr><tr><td>MessagePack_Serialize</td><td>Small</td><td>116.04 &mu;s</td><td>0.156 &mu;s</td><td>0.138 &mu;s</td><td>115.70 &mu;s</td><td>116.26 &mu;s</td><td>10.9863</td><td>2.1973</td><td>-</td><td>69336 B</td>
+</tr><tr><td>ProtoBufNet_Serialize</td><td>Small</td><td>175.75 &mu;s</td><td>0.222 &mu;s</td><td>0.207 &mu;s</td><td>175.40 &mu;s</td><td>176.10 &mu;s</td><td>36.1328</td><td>9.0332</td><td>-</td><td>228616 B</td>
+</tr><tr><td>MsgPack_Serialize</td><td>Small</td><td>225.71 &mu;s</td><td>0.106 &mu;s</td><td>0.099 &mu;s</td><td>225.54 &mu;s</td><td>225.93 &mu;s</td><td>94.7266</td><td>24.4141</td><td>-</td><td>596032 B</td>
+</tr><tr><td>Hyperion_Serialize</td><td>Small</td><td>250.58 &mu;s</td><td>4.067 &mu;s</td><td>3.396 &mu;s</td><td>247.17 &mu;s</td><td>257.70 &mu;s</td><td>62.0117</td><td>34.1797</td><td>22.4609</td><td>384320 B</td>
+</tr><tr><td>AvroConvert_Serialize</td><td>Small</td><td>749.76 &mu;s</td><td>7.729 &mu;s</td><td>7.229 &mu;s</td><td>739.53 &mu;s</td><td>763.73 &mu;s</td><td>239.2578</td><td>101.5625</td><td>45.8984</td><td>1481780 B</td>
+</tr><tr><td>BSON_Serialize</td><td>Small</td><td>1,080.60 &mu;s</td><td>4.928 &mu;s</td><td>4.610 &mu;s</td><td>1,074.50 &mu;s</td><td>1,089.77 &mu;s</td><td>177.7344</td><td>103.5156</td><td>93.7500</td><td>1093668 B</td>
+</tr><tr><td>GroBuf_Serialize</td><td>Medium</td><td>1,788.21 &mu;s</td><td>7.842 &mu;s</td><td>6.548 &mu;s</td><td>1,773.11 &mu;s</td><td>1,798.43 &mu;s</td><td>130.8594</td><td>130.8594</td><td>130.8594</td><td>4688747 B</td>
+</tr><tr><td>Bebop_Serialize</td><td>Medium</td><td>2,230.84 &mu;s</td><td>2.775 &mu;s</td><td>2.596 &mu;s</td><td>2,226.76 &mu;s</td><td>2,235.53 &mu;s</td><td>-</td><td>-</td><td>-</td><td>27 B</td>
+</tr><tr><td>MessagePack_Serialize</td><td>Medium</td><td>2,869.11 &mu;s</td><td>1.534 &mu;s</td><td>1.360 &mu;s</td><td>2,866.83 &mu;s</td><td>2,870.96 &mu;s</td><td>82.0313</td><td>82.0313</td><td>82.0313</td><td>1737189 B</td>
+</tr><tr><td>ProtoBufNet_Serialize</td><td>Medium</td><td>4,517.67 &mu;s</td><td>6.892 &mu;s</td><td>5.755 &mu;s</td><td>4,510.27 &mu;s</td><td>4,526.95 &mu;s</td><td>312.5000</td><td>289.0625</td><td>289.0625</td><td>7090196 B</td>
+</tr><tr><td>Hyperion_Serialize</td><td>Medium</td><td>6,022.72 &mu;s</td><td>17.851 &mu;s</td><td>16.698 &mu;s</td><td>6,005.48 &mu;s</td><td>6,062.22 &mu;s</td><td>453.1250</td><td>265.6250</td><td>250.0000</td><td>7197670 B</td>
+</tr><tr><td>MsgPack_Serialize</td><td>Medium</td><td>6,051.81 &mu;s</td><td>37.696 &mu;s</td><td>31.478 &mu;s</td><td>6,001.14 &mu;s</td><td>6,120.74 &mu;s</td><td>859.3750</td><td>507.8125</td><td>468.7500</td><td>15023898 B</td>
+</tr><tr><td>GroBuf_Serialize</td><td>Large</td><td>7,553.94 &mu;s</td><td>149.972 &mu;s</td><td>277.982 &mu;s</td><td>6,941.86 &mu;s</td><td>7,826.03 &mu;s</td><td>78.1250</td><td>78.1250</td><td>78.1250</td><td>18824361 B</td>
+</tr><tr><td>Bebop_Serialize</td><td>Large</td><td>8,960.78 &mu;s</td><td>14.179 &mu;s</td><td>12.569 &mu;s</td><td>8,931.85 &mu;s</td><td>8,978.89 &mu;s</td><td>-</td><td>-</td><td>-</td><td>34 B</td>
+</tr><tr><td>MessagePack_Serialize</td><td>Large</td><td>11,490.05 &mu;s</td><td>11.773 &mu;s</td><td>11.012 &mu;s</td><td>11,476.37 &mu;s</td><td>11,512.17 &mu;s</td><td>46.8750</td><td>46.8750</td><td>46.8750</td><td>7196926 B</td>
+</tr><tr><td>AvroConvert_Serialize</td><td>Medium</td><td>15,373.28 &mu;s</td><td>73.547 &mu;s</td><td>68.796 &mu;s</td><td>15,243.54 &mu;s</td><td>15,450.65 &mu;s</td><td>3640.6250</td><td>937.5000</td><td>578.1250</td><td>31821238 B</td>
+</tr><tr><td>ProtoBufNet_Serialize</td><td>Large</td><td>19,039.85 &mu;s</td><td>151.448 &mu;s</td><td>134.255 &mu;s</td><td>18,662.80 &mu;s</td><td>19,152.00 &mu;s</td><td>125.0000</td><td>125.0000</td><td>125.0000</td><td>27892894 B</td>
+</tr><tr><td>BSON_Serialize</td><td>Medium</td><td>25,767.36 &mu;s</td><td>69.874 &mu;s</td><td>61.941 &mu;s</td><td>25,688.15 &mu;s</td><td>25,919.20 &mu;s</td><td>2000.0000</td><td>406.2500</td><td>406.2500</td><td>22511754 B</td>
+</tr><tr><td>MsgPack_Serialize</td><td>Large</td><td>25,959.33 &mu;s</td><td>105.905 &mu;s</td><td>88.435 &mu;s</td><td>25,792.72 &mu;s</td><td>26,101.66 &mu;s</td><td>1906.2500</td><td>687.5000</td><td>625.0000</td><td>67712147 B</td>
+</tr><tr><td>Hyperion_Serialize</td><td>Large</td><td>26,718.18 &mu;s</td><td>82.613 &mu;s</td><td>77.277 &mu;s</td><td>26,628.42 &mu;s</td><td>26,885.05 &mu;s</td><td>968.7500</td><td>250.0000</td><td>218.7500</td><td>28828458 B</td>
+</tr><tr><td>AvroConvert_Serialize</td><td>Large</td><td>57,063.31 &mu;s</td><td>55.234 &mu;s</td><td>48.963 &mu;s</td><td>56,981.69 &mu;s</td><td>57,156.14 &mu;s</td><td>12444.4444</td><td>555.5556</td><td>333.3333</td><td>127375845 B</td>
+</tr><tr><td>BSON_Serialize</td><td>Large</td><td>100,193.82 &mu;s</td><td>420.955 &mu;s</td><td>328.654 &mu;s</td><td>99,614.12 &mu;s</td><td>100,600.68 &mu;s</td><td>6400.0000</td><td>-</td><td>-</td><td>90285170 B</td>
+</tr></tbody></table>
+</body>
+</html>
