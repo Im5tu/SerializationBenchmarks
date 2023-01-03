@@ -12,7 +12,7 @@ internal static class Program
     {
         //GenerateDataSet();
         VerifySerializedSizes();
-        //BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run();
+        BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run();
     }
 
     // ReSharper disable once UnusedMember.Local
