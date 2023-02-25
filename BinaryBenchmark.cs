@@ -38,6 +38,7 @@ public partial class BinaryBenchmark : SerializerBenchmark
                     GroBuf = DataConvert_GroBuf(users),
                     Hyperion = DataConvert_Hyperion(users),
                     MessagePack = DataConvert_MessagePack(users),
+                    MemoryPack = DataConvert_MemoryPack(users),
                     MsgPack = DataConvert_MsgPack(users),
                     ProtoBufNet = DataConvert_ProtoBufNet(users)
                 }
@@ -62,5 +63,6 @@ public partial class BinaryBenchmark : SerializerBenchmark
         public byte[] MessagePack { get; set; }
         public byte[] MsgPack { get; set; }
         public byte[] ProtoBufNet { get; set; }
+        public byte[] MemoryPack { get; set; }
     }
 }

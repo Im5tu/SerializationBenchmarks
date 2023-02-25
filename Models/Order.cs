@@ -1,10 +1,11 @@
-﻿using MessagePack;
+﻿using MemoryPack;
+using MessagePack;
 using ProtoBuf;
 
 namespace SerializationBenchmarks.Models;
 
-[MessagePackObject, ProtoContract]
-public class Order
+[MessagePackObject, ProtoContract, MemoryPackable]
+public partial class Order
 {
     [Key(0), ProtoMember(1)]
     public int OrderId { get; set; }

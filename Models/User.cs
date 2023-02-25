@@ -1,10 +1,11 @@
-﻿using MessagePack;
+﻿using MemoryPack;
+using MessagePack;
 using ProtoBuf;
 
 namespace SerializationBenchmarks.Models;
 
-[MessagePackObject, ProtoContract]
-public class User
+[MessagePackObject, ProtoContract, MemoryPackable]
+public partial class User
 {
     [Key(0), ProtoMember(1)]
     public int Id { get; set; }
