@@ -1,0 +1,30 @@
+{
+  "extends": [
+      "config:base",
+      ":disableDependencyDashboard",
+      ":rebaseStalePrs"
+  ],
+  "addLabels": [
+      "type: dependencies"
+  ],
+  "groupName": "all dependencies",
+  "groupSlug": "all",
+  "packageRules": [
+      {
+          "automerge": true,
+          "groupName": "all dependencies",
+          "groupSlug": "all",
+          "matchPackagePatterns": [
+              "*"
+          ],
+          "matchUpdateTypes": [
+              "minor",
+              "patch",
+              "pin",
+              "digest"
+          ]
+      }
+  ],
+  "semanticCommits": "enabled",
+  "separateMajorMinor": false
+}
