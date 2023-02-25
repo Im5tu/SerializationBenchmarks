@@ -1,6 +1,6 @@
 # SerializationBenchmarks
 
-As part of a [recent YouTube video](https://www.youtube.com/watch?v=XMoNYQPi2k8), I went through a bunch of serializers to see their current levels of performance. I'm happy for this repository to be improved in terms of fixing any minor issues, adding new scenarios or adding serialization frameworks.
+As part of a [YouTube video](https://www.youtube.com/watch?v=XMoNYQPi2k8), I went through a bunch of serializers to see their current levels of performance. I'm happy for this repository to be improved in terms of fixing any minor issues, adding new scenarios or adding serialization frameworks.
 
 ## Serializers
 
