@@ -27,6 +27,9 @@ public partial class BinaryBenchmark : SerializerBenchmark
         {
             var json = File.ReadAllText(set.File);
             var users = JsonSerializer.Deserialize<List<User>>(json, options);
+            
+            var cborData = DataConvert_CBOR(users).GetAwaiter().GetResult();
+            
             yield return new DataSet
             {
                 Name = set.Subset,
@@ -35,12 +38,13 @@ public partial class BinaryBenchmark : SerializerBenchmark
                 {
                     AvroConvert = DataConvert_AvroConvert(users),
                     BSON = DataConvert_BSON(users),
+                    CBOR = cborData,
                     GroBuf = DataConvert_GroBuf(users),
                     Hyperion = DataConvert_Hyperion(users),
                     MessagePack = DataConvert_MessagePack(users),
                     MemoryPack = DataConvert_MemoryPack(users),
                     MsgPack = DataConvert_MsgPack(users),
-                    ProtoBufNet = DataConvert_ProtoBufNet(users)
+                    ProtoBufNet = DataConvert_ProtoBufNet(users),
                 }
             };
         }
@@ -58,6 +62,7 @@ public partial class BinaryBenchmark : SerializerBenchmark
     {
         public byte[] AvroConvert { get; set; }
         public byte[] BSON { get; set; }
+        public byte[] CBOR { get; set; }
         public byte[] GroBuf { get; set; }
         public byte[] Hyperion { get; set; }
         public byte[] MessagePack { get; set; }
