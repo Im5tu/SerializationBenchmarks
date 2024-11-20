@@ -18,6 +18,7 @@ As part of a [YouTube video](https://www.youtube.com/watch?v=XMoNYQPi2k8), I wen
 - [AvroConvert](https://www.nuget.org/packages/AvroConvert/)
 - [Bebop](https://www.nuget.org/packages/bebop)
 - [BSON](https://www.nuget.org/packages/MongoDB.Bson)
+- [CBOR](https://www.nuget.org/packages/Dahomey.Cbor)
 - [GroBuf](https://www.nuget.org/packages/GroBuf)
 - [Hyperion](https://www.nuget.org/packages/Hyperion)
 - [MessagePack](https://www.nuget.org/packages/MessagePack)
