@@ -3,7 +3,6 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using BenchmarkDotNet.Running;
 using Bogus;
-using Microsoft.Diagnostics.Runtime;
 using SerializationBenchmarks.Models;
 
 internal static class Program
@@ -43,6 +42,7 @@ internal static class Program
             var results = binaryResults[bds.Name];
             results["AvroConvert"] = bds.SerializedData.AvroConvert.Length;
             results["BSON"] = bds.SerializedData.BSON.Length;
+            results["CBOR"] = bds.SerializedData.CBOR.Length;
             results["GroBuf"] = bds.SerializedData.GroBuf.Length;
             results["Hyperion"] = bds.SerializedData.Hyperion.Length;
             results["MessagePack"] = bds.SerializedData.MessagePack.Length;
