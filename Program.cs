@@ -58,7 +58,6 @@ internal static class Program
         foreach (var jds in jsonDataSets)
         {
             var results = jsonResults[jds.Name];
-            results["Jil"] = Encoding.UTF8.GetBytes(j.Jil_Serialize(jds)).Length;
             results["Newtonsoft.Json"] = Encoding.UTF8.GetBytes(j.NewtonsoftJson_Serialize(jds)).Length;
             results["ServiceStack"] = Encoding.UTF8.GetBytes(j.ServiceStack_Serialize(jds)).Length;
             results["SpanJson"] = j.SpanJson_Serialize(jds).ToArray().Length;

@@ -1,5 +1,7 @@
 ﻿using MemoryPack;
 using MessagePack;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using ProtoBuf;
 
 namespace SerializationBenchmarks.Models;
@@ -21,11 +23,11 @@ public partial class User
     public string Email { get; set; }
     [Key(6), ProtoMember(7)]
     public string SomethingUnique { get; set; }
-    [Key(7), ProtoMember(8)]
+    [Key(7), ProtoMember(8), BsonGuidRepresentation(GuidRepresentation.Standard)]
     public Guid SomeGuid { get; set; }
     [Key(8), ProtoMember(9)]
     public string Avatar { get; set; }
-    [Key(9), ProtoMember(10)]
+    [Key(9), ProtoMember(10), BsonGuidRepresentation(GuidRepresentation.Standard)]
     public Guid CartId { get; set; }
     [Key(10), ProtoMember(11)]
     public string SSN { get; set; }
