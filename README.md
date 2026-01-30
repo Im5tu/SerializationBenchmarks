@@ -6,7 +6,6 @@ As part of a [YouTube video](https://www.youtube.com/watch?v=XMoNYQPi2k8), I wen
 
 ### JSON
 
-- [Jil](https://www.nuget.org/packages/Jil/)
 - [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)
 - [ServiceStack.Text](https://www.nuget.org/packages/ServiceStack.Text/)
 - [SpanJson](https://www.nuget.org/packages/SpanJson)
@@ -26,85 +25,7 @@ As part of a [YouTube video](https://www.youtube.com/watch?v=XMoNYQPi2k8), I wen
 - [MsgPack](https://www.nuget.org/packages/MsgPack)
 - [protobuf-net](https://www.nuget.org/packages/protobuf-net)
 
-## Current .NET 9 Serializer Results (2025-12-31)
-
-| Method                            | data   | Mean         | Error       | StdDev      | Median       | Min          | Max          | Ratio | RatioSD | Gen0      | Gen1     | Gen2     | Allocated   | Alloc Ratio |
-|---------------------------------- |------- |-------------:|------------:|------------:|-------------:|-------------:|-------------:|------:|--------:|----------:|---------:|---------:|------------:|------------:|
-| Jil_Deserialize                   | Large  |           NA |          NA |          NA |           NA |           NA |           NA |     ? |       ? |        NA |       NA |       NA |          NA |           ? |                                                                                                                                                              
-| SpanJson_Deserialize              | Large  |  54,478.2 us | 1,082.70 us | 1,063.36 us |  54,320.1 us |  52,783.0 us |  56,243.7 us |  0.74 |    0.02 |  700.0000 | 600.0000 | 200.0000 | 44666.42 KB |        1.61 |
-| UTF8Json_Deserialize              | Large  |  65,441.2 us | 1,136.97 us | 1,007.89 us |  65,366.2 us |  64,093.8 us |  67,190.9 us |  0.89 |    0.02 |  777.7778 | 666.6667 | 222.2222 | 44667.09 KB |        1.61 |
-| SystemTextJson_SrcGen_Deserialize | Large  |  73,088.0 us | 1,368.07 us | 1,872.64 us |  72,317.8 us |  70,671.6 us |  78,111.5 us |  0.99 |    0.03 |  571.4286 | 428.5714 | 142.8571 |  27752.9 KB |        1.00 |
-| SystemTextJson_Deserialize        | Large  |  73,634.1 us | 1,457.38 us | 1,619.88 us |  73,363.0 us |  71,824.8 us |  77,093.2 us |  1.00 |    0.03 |  571.4286 | 428.5714 | 142.8571 | 27752.86 KB |        1.00 |
-| ServiceStack_Deserialize          | Large  | 116,346.9 us | 2,221.62 us | 2,377.11 us | 117,131.2 us | 112,845.8 us | 119,929.6 us |  1.58 |    0.05 |  800.0000 | 600.0000 | 200.0000 | 37471.97 KB |        1.35 |
-| NewtonsoftJson_Deserialize        | Large  | 133,121.1 us | 2,637.44 us | 5,144.12 us | 130,887.5 us | 126,023.5 us | 143,068.4 us |  1.81 |    0.08 | 1000.0000 | 750.0000 | 250.0000 | 39138.03 KB |        1.41 |
-|                                   |        |              |             |             |              |              |              |       |         |           |          |          |             |             |
-| Jil_Deserialize                   | Medium |           NA |          NA |          NA |           NA |           NA |           NA |     ? |       ? |        NA |       NA |       NA |          NA |           ? |
-| SpanJson_Deserialize              | Medium |   8,412.7 us |   161.22 us |   198.00 us |   8,409.0 us |   7,976.1 us |   8,902.9 us |  0.67 |    0.02 |  250.0000 | 187.5000 | 109.3750 | 11124.62 KB |        1.60 |
-| UTF8Json_Deserialize              | Medium |  11,080.4 us |   215.09 us |   220.89 us |  11,077.3 us |  10,684.5 us |  11,415.6 us |  0.89 |    0.02 |  250.0000 | 187.5000 | 109.3750 | 11124.73 KB |        1.60 |
-| SystemTextJson_SrcGen_Deserialize | Medium |  12,316.5 us |   107.62 us |   100.67 us |  12,296.4 us |  12,159.7 us |  12,494.8 us |  0.99 |    0.01 |  140.6250 |  78.1250 |        - |  6935.37 KB |        1.00 |
-| SystemTextJson_Deserialize        | Medium |  12,474.1 us |    81.77 us |    76.48 us |  12,471.2 us |  12,353.9 us |  12,629.3 us |  1.00 |    0.01 |  140.6250 |  78.1250 |        - |  6935.37 KB |        1.00 |
-| ServiceStack_Deserialize          | Medium |  20,520.3 us |   123.55 us |   115.57 us |  20,518.6 us |  20,272.1 us |  20,712.3 us |  1.65 |    0.01 |  187.5000 |  93.7500 |        - |   9357.1 KB |        1.35 |
-| NewtonsoftJson_Deserialize        | Medium |  21,150.3 us |   155.28 us |   145.25 us |  21,180.1 us |  20,886.1 us |  21,437.6 us |  1.70 |    0.02 |  187.5000 |  62.5000 |        - |  9776.73 KB |        1.41 |
-|                                   |        |              |             |             |              |              |              |       |         |           |          |          |             |             |
-| Jil_Deserialize                   | Small  |           NA |          NA |          NA |           NA |           NA |           NA |     ? |       ? |        NA |       NA |       NA |          NA |           ? |
-| SpanJson_Deserialize              | Small  |     321.8 us |     1.76 us |     1.37 us |     321.6 us |     319.7 us |     324.4 us |  0.64 |    0.01 |   52.2461 |  52.2461 |  52.2461 |   446.97 KB |        1.60 |
-| UTF8Json_Deserialize              | Small  |     377.7 us |     4.70 us |     4.40 us |     376.0 us |     372.8 us |     387.5 us |  0.75 |    0.01 |   52.7344 |  47.8516 |  47.3633 |   447.08 KB |        1.60 |
-| SystemTextJson_SrcGen_Deserialize | Small  |     496.2 us |     5.10 us |     4.77 us |     497.3 us |     483.8 us |     503.5 us |  0.98 |    0.01 |    4.8828 |   1.9531 |        - |   279.73 KB |        1.00 |
-| SystemTextJson_Deserialize        | Small  |     505.2 us |     6.52 us |     6.10 us |     506.1 us |     496.3 us |     516.4 us |  1.00 |    0.02 |    4.8828 |   1.9531 |        - |   279.73 KB |        1.00 |
-| ServiceStack_Deserialize          | Small  |     806.6 us |     4.31 us |     4.03 us |     807.0 us |     800.2 us |     814.1 us |  1.60 |    0.02 |    6.8359 |   2.9297 |        - |   379.04 KB |        1.36 |
-| NewtonsoftJson_Deserialize        | Small  |     851.9 us |     8.37 us |     7.83 us |     851.8 us |     837.7 us |     867.9 us |  1.69 |    0.02 |    7.8125 |   4.8828 |        - |   398.46 KB |        1.42 |
-|                                   |        |              |             |             |              |              |              |       |         |           |          |          |             |             |
-| SpanJson_Serialize                | Large  |  13,175.9 us |   107.89 us |    95.64 us |  13,156.0 us |  13,058.9 us |  13,400.8 us |  0.42 |    0.01 |   46.8750 |  46.8750 |  46.8750 | 16384.11 KB |        0.48 |
-| Jil_Serialize                     | Large  |  27,910.4 us |   551.11 us |   515.50 us |  27,885.0 us |  27,202.4 us |  28,896.7 us |  0.88 |    0.02 |  875.0000 | 812.5000 | 187.5000 |  67812.8 KB |        2.00 |
-| SystemTextJson_Serialize          | Large  |  31,564.5 us |   435.24 us |   385.83 us |  31,515.6 us |  31,152.7 us |  32,598.8 us |  1.00 |    0.02 |         - |        - |        - | 33828.14 KB |        1.00 |
-| SystemTextJson_SrcGen_Serialize   | Large  |  32,713.6 us |   477.96 us |   399.12 us |  32,747.7 us |  31,995.7 us |  33,363.9 us |  1.04 |    0.02 |         - |        - |        - | 33828.16 KB |        1.00 |
-| UTF8Json_Serialize                | Large  |  34,443.0 us |   787.38 us | 2,321.61 us |  34,470.4 us |  29,442.8 us |  41,212.3 us |  1.09 |    0.07 |  733.3333 | 733.3333 | 733.3333 | 82320.09 KB |        2.43 |
-| NewtonsoftJson_Serialize          | Large  |  57,080.6 us | 1,108.35 us | 1,553.76 us |  56,660.0 us |  55,171.1 us |  60,559.9 us |  1.81 |    0.05 |  888.8889 | 666.6667 |        - | 81289.39 KB |        2.40 |
-| ServiceStack_Serialize            | Large  |  72,153.2 us | 1,430.71 us | 1,405.14 us |  71,742.6 us |  69,637.1 us |  74,587.7 us |  2.29 |    0.05 |  875.0000 |        - |        - | 77248.26 KB |        2.28 |
-|                                   |        |              |             |             |              |              |              |       |         |           |          |          |             |             |
-| SpanJson_Serialize                | Medium |   4,068.9 us |    77.35 us |    82.76 us |   4,066.4 us |   3,936.9 us |   4,255.8 us |  0.39 |    0.02 |  195.3125 | 195.3125 | 195.3125 |  4096.28 KB |        0.49 |
-| Jil_Serialize                     | Medium |   8,152.8 us |   272.09 us |   802.26 us |   8,469.7 us |   6,185.6 us |   9,246.4 us |  0.78 |    0.08 |  507.8125 | 460.9375 | 335.9375 | 16800.89 KB |        2.00 |
-| UTF8Json_Serialize                | Medium |   9,642.8 us |   276.92 us |   807.80 us |   9,472.9 us |   8,304.8 us |  11,948.3 us |  0.92 |    0.08 |  703.1250 | 703.1250 | 703.1250 | 20445.85 KB |        2.44 |
-| SystemTextJson_Serialize          | Medium |  10,458.9 us |   197.33 us |   375.44 us |  10,438.4 us |   9,588.4 us |  11,157.5 us |  1.00 |    0.05 |  125.0000 | 125.0000 | 125.0000 |  8379.53 KB |        1.00 |
-| SystemTextJson_SrcGen_Serialize   | Medium |  12,881.4 us |   252.88 us |   337.59 us |  12,920.5 us |  11,718.6 us |  13,498.1 us |  1.23 |    0.05 |  125.0000 | 125.0000 | 125.0000 |  8379.53 KB |        1.00 |
-| NewtonsoftJson_Serialize          | Medium |  17,425.1 us |   347.00 us |   838.05 us |  17,546.3 us |  14,826.3 us |  19,019.9 us |  1.67 |    0.10 |  578.1250 | 531.2500 | 343.7500 | 20167.49 KB |        2.41 |
-| ServiceStack_Serialize            | Medium |  25,097.6 us |   656.19 us | 1,934.80 us |  25,020.2 us |  20,593.8 us |  29,624.7 us |  2.40 |    0.20 |  500.0000 | 281.2500 | 281.2500 | 19051.54 KB |        2.27 |
-|                                   |        |              |             |             |              |              |              |       |         |           |          |          |             |             |
-| SpanJson_Serialize                | Small  |     181.5 us |     3.77 us |    11.12 us |     182.6 us |     158.1 us |     209.0 us |  0.47 |    0.04 |   83.2520 |  83.2520 |  83.2520 |   256.13 KB |        0.76 |
-| UTF8Json_Serialize                | Small  |     222.7 us |     4.31 us |     4.79 us |     222.5 us |     213.3 us |     233.0 us |  0.58 |    0.04 |  148.6816 | 148.6816 | 148.6816 |   551.82 KB |        1.64 |
-| Jil_Serialize                     | Small  |     322.2 us |    13.65 us |    39.61 us |     337.9 us |     231.8 us |     370.2 us |  0.84 |    0.11 |   99.8535 |  99.8535 |  99.8535 |   673.97 KB |        2.01 |
-| SystemTextJson_SrcGen_Serialize   | Small  |     373.2 us |     7.38 us |    18.92 us |     373.1 us |     329.1 us |     414.9 us |  0.97 |    0.07 |   99.6094 |  99.6094 |  99.6094 |   335.64 KB |        1.00 |
-| SystemTextJson_Serialize          | Small  |     386.7 us |     7.73 us |    21.53 us |     389.9 us |     331.6 us |     436.8 us |  1.00 |    0.08 |   99.6094 |  99.6094 |  99.6094 |   335.64 KB |        1.00 |
-| NewtonsoftJson_Serialize          | Small  |     767.5 us |    21.54 us |    63.18 us |     776.2 us |     629.6 us |     919.8 us |  1.99 |    0.20 |   99.6094 |  99.6094 |  99.6094 |   821.09 KB |        2.45 |
-| ServiceStack_Serialize            | Small  |     938.1 us |    18.75 us |    45.28 us |     936.0 us |     828.0 us |   1,054.8 us |  2.43 |    0.18 |   90.8203 |  90.8203 |  90.8203 |   763.05 KB |        2.27 |
-
-
-## Changes 
-
-- .NET 10 Migration
-
-  | Package           | Old     | New    | Change |
-  |-------------------|---------|--------|--------|
-  | AvroConvert       | 3.4.10  | 3.4.16 | patch  |
-  | bebop             | 3.0.14  | 3.2.3  | minor  |
-  | bebop-tools       | 3.0.14  | 3.2.3  | minor  |
-  | BenchmarkDotNet   | 0.14.0  | 0.15.8 | minor  |
-  | Bogus             | 35.6.1  | 35.6.5 | patch  |
-  | Dahomey.Cbor      | 1.24.3  | 1.25.1 | minor  |
-  | MemoryPack        | 1.21.3  | 1.21.4 | patch  |
-  | MessagePack       | 2.5.192 | 3.1.4  | major  |
-  | MongoDB.Bson      | 2.30.0  | 3.5.2  | major  |
-  | Newtonsoft.Json   | 13.0.3  | 13.0.4 | patch  |
-  | protobuf-net      | 3.2.45  | 3.2.56 | patch  |
-  | ServiceStack.Text | 8.4.0   | 10.0.4 | major  |
-
-This is a known .NET compatibility issue with Jil. The error occurs because:
-
-1. .NET 7+ added new overloads for TimeSpan.FromSeconds (both double and long versions)
-2. Jil hasn't been updated since 2019 and doesn't support modern .NET versions, so this has been removed
-
-
-## .NET 10 - Binary
+## .NET 10 - Binary (Last Run 2026-01-27)
 
 | Method                  | data   | Mean         | Error        | StdDev       | Median       | Min          | Max           | Gen0      | Gen1      | Gen2     | Allocated   |
 |------------------------ |------- |-------------:|-------------:|-------------:|-------------:|-------------:|--------------:|----------:|----------:|---------:|------------:|
@@ -170,7 +91,7 @@ This is a known .NET compatibility issue with Jil. The error occurs because:
 | CBOR_Serialize          | Large  | 47,750.86 us |   766.150 us |   716.657 us | 47,506.22 us | 46,906.84 us |  49,060.20 us |   90.9091 |         - |        - |  34038424 B |
 | BSON_Serialize          | Large  | 70,826.86 us | 1,232.575 us | 1,092.646 us | 70,977.39 us | 69,262.30 us |  72,810.54 us |  714.2857 |         - |        - |  88364960 B |
 
-## .NET 10 - JSON
+## .NET 10 - JSON  (Last Run 2026-01-27)
 
 | Method                            | data   | Mean         | Error       | StdDev       | Median       | Min          | Max          | Ratio | RatioSD | Gen0      | Gen1     | Gen2     | Allocated   | Alloc Ratio |
 |---------------------------------- |------- |-------------:|------------:|-------------:|-------------:|-------------:|-------------:|------:|--------:|----------:|---------:|---------:|------------:|------------:|
